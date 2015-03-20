@@ -39,7 +39,7 @@ int main()
 		UpperCount += IsUppercase(current_char);
 		LowerCount += IsLowercase(current_char);
 		Symbol += IsSymbol(current_char);
-		WordCount += (!(current_char - 32));
+		WordCount += (current_char == ' ');
 		cout <<current_char;
 	}
 	cout << "\n\n發現了一共 " << NumberCount << "個數字, " <<  UpperCount << "個大寫字, " ;
@@ -48,4 +48,3 @@ int main()
 	system("pause");
 	return 0;
 }
-
