@@ -3,6 +3,12 @@
 #include <cstdlib>
 using namespace std;
 int total_money = 0;
+/*
+1.å¯è¼¸å…¥æ”¯å‡ºæˆ–æ”¶å…¥é …ç›®èˆ‡é‡‘é¡
+2.å¯ç”±æª”æ¡ˆä¸­è®€å–å¸³ç›®è³‡æ–™
+3.å¯å°‡å¸³ç›®è³‡æ–™å­˜å…¥æª”æ¡ˆ
+4.å¯è¨ˆç®—å¸³ç›®çµé¤˜
+*/
 void SetTotalMoney(bool Paid,int Money)
 {
 	total_money = total_money + Money * (Paid? -1 : 1);
@@ -19,11 +25,11 @@ void ChkMoneySum()
 	total_money = 0;
 	while(fileInput >> Type>> Money >> result)
 	{
-		cout << (Type?"[¤ä¥X]\t":"[¦¬¤J]\t") << Money << "¤¸\t­ì¦]: " << result << endl;
+		cout << (Type?"[æ”¯å‡º]\t":"[æ”¶å…¥]\t") << Money << "å…ƒ\tåŽŸå› : " << result << endl;
 		SetTotalMoney(Type,Money);
 	}
 	fileInput.close();
-	cout << "¥Ø«e±zªºÁ`ª÷ÃB¬°: " << total_money << endl << endl;
+	cout << "ç›®å‰æ‚¨çš„ç¸½é‡‘é¡ç‚º: " << total_money << endl << endl;
 }
 
 int main()
@@ -38,12 +44,12 @@ int main()
 	char result[256] = {};
 	for(int choise(-1),Money(0);;)
 	{
-		cout << "½Ð¿é¤J±z·Q°O¿ý:[0]¦¬¤J [1]¤ä¥X [2]Â÷¶}? ";cin >> choise;
+		cout << "è«‹è¼¸å…¥æ‚¨æƒ³è¨˜éŒ„:[0]æ”¶å…¥ [1]æ”¯å‡º [2]é›¢é–‹? ";cin >> choise;
 		if ( choise > 2 || choise < 0 ) continue;
 		else if (choise == 2) break;
-		cout << "½Ð¿é¤J±zªºª÷ÃB: ";cin >> Money;
+		cout << "è«‹è¼¸å…¥æ‚¨çš„é‡‘é¡: ";cin >> Money;
 		if ( Money < 1 ) continue;
-		cout << "½Ð¿é¤J¦¹µ§°O¿ýªº²z¥Ñ(³Ì¦h256¦r¤¸,¤£±o¦³ªÅ¥Õ): ";cin >> result;
+		cout << "è«‹è¼¸å…¥æ­¤ç­†è¨˜éŒ„çš„ç†ç”±(æœ€å¤š256å­—å…ƒ,ä¸å¾—æœ‰ç©ºç™½): ";cin >> result;
 		fileOutput << choise << " " << Money << " "<< result << endl;
 		SetTotalMoney(choise,Money);
 		ChkMoneySum();
