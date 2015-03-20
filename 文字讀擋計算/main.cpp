@@ -24,18 +24,19 @@ int main()
 	fstream fileInput;
 	fileInput.open("data.txt",ios::in);
 	if (!fileInput) exit(0);
-	int NumberCount(0),UpperCount(0),LowerCount(0),Symbol(0);
-	cout << "ÀÉ®×¤º¤å¦r: ";
+	int NumberCount(0),UpperCount(0),LowerCount(0),Symbol(0),WordCount(1);
+	cout << "æª”æ¡ˆå…§æ–‡å­—: ";
 	for(char current_char;fileInput.get(current_char);)
 	{
 		NumberCount += IsNumber(current_char);
 		UpperCount += IsUppercase(current_char);
 		LowerCount += IsLowercase(current_char);
-		Symbol += IsSymbol(current_char);	
+		Symbol += IsSymbol(current_char);
+		WordCount += (!(current_char - 32));
 		cout <<current_char;
 	}
-	cout << "\n\nµo²{¤F¤@¦@ " << NumberCount << "­Ó¼Æ¦r, " <<  UpperCount << "­Ó¤j¼g¦r, " ;
-	cout << LowerCount << "­Ó¤p¼g¦r, " << Symbol << "­Ó²Å¸¹,¦@" << (UpperCount+LowerCount) << "­Ó³æ¦r.\n"; 
+	cout << "\n\nç™¼ç¾äº†ä¸€å…± " << NumberCount << "å€‹æ•¸å­—, " <<  UpperCount << "å€‹å¤§å¯«å­—, " ;
+	cout << LowerCount << "å€‹å°å¯«å­—, " << Symbol << "å€‹ç¬¦è™Ÿ,å…±" << WordCount << "å€‹å–®å­—.\n"; 
 	fileInput.close();
 	system("pause");
 	return 0;
