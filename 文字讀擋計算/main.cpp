@@ -2,7 +2,14 @@
 #include <fstream>
 #include <cstdlib>
 using namespace std;
-
+/*
+1.讀取一個文字檔案
+2.計算此文字檔案中有多少個大寫字元
+3.計算此文字檔案中有多少個小寫字元
+4.計算次文字檔案中有多少個數字字元
+5.計算次文字檔案中有多少個符號字元
+5.計算次文字檔案中有多少個單字
+*/
 bool IsNumber(char i)
 {
 	return ((i > 47) && (i < 58));
