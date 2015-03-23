@@ -4,6 +4,13 @@
 #include <cstdlib>
 using namespace std;
 
+string GetBlankBefore(string source,int pos)
+{
+	string blank_before_str;
+	for(pos --;source[pos] == ' ';blank_before_str += ' ',pos--);
+	return (blank_before_str);
+}
+
 string GetSource()
 {
 	string temp_str_source;
@@ -13,6 +20,7 @@ string GetSource()
 	fin.close();
 	return (temp_str_source);
 }
+
 void SaveSourceToNew(string OutputContent)
 {
 	ofstream fout("new_source.cpp");
@@ -35,8 +43,8 @@ int main()
     string method_left_content = user_source.substr(pos_left_start + 1, pos_blocksymbol_1 - pos_left_start - 1);
     string method_mid_content = user_source.substr(pos_blocksymbol_1 + 1, pos_blocksymbol_2 - pos_blocksymbol_1 - 1);
 	string method_right_content = user_source.substr(pos_blocksymbol_2 + 1, pos_right_end - pos_blocksymbol_2 - 1);
-	method_right_content.append(";\n");
-	method_left_content.append(";\n");
+	method_right_content.append(";\n" + GetBlankBefore(user_source,pos_current_for_blockend));
+	method_left_content.append(";\n"  + GetBlankBefore(user_source,pos_for -1));
 
 	user_source.insert(pos_current_for_blockend,method_right_content);
     user_source.replace(pos_left_start + 1, pos_right_end - pos_left_start - 1 ,method_mid_content);
