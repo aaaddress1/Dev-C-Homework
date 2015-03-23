@@ -3,7 +3,39 @@
 #include <string>
 #include <cstdlib>
 using namespace std;
+/*
+請設計一個程式，完成將for loop程式碼轉換成while loop
+1. 已知for loop語法為
+    for (起始條件;終止條件;遞增條件)
+    {
+        程式主體
+    }
+2. 已知while loop語法為
+    起始條件
+    while (終止條件)
+    {
+          程式主體;
+          遞增條件
+    }
+3. 請設計一個程式
+    a. 讀入一個程式碼檔案
+    b. 找出程式碼中for loop指令
+    c. 將for loop指令轉換成while loop 指令
+    d. 測試程式：1+2+3+4+...+100
 
+example:
+for (i=0;i<101;i++)
+{
+   sum+=i;
+}
+
+i=0;
+while(i<101)
+{
+   sum+=i;
+   i++;
+}
+*/
 string GetSource()
 {
 	string temp_str_source;
@@ -24,7 +56,7 @@ void SaveSourceToNew(string OutputContent)
 int main()
 {
 	string user_source = GetSource();
- 	cout << "�I����{���X:\n\n" << user_source;
+ 	cout << "截取到程式碼:\n\n" << user_source;
  	int pos_for = user_source.find("for");
  	int pos_left_start = user_source.find("(",pos_for);
     int pos_right_end  = user_source.find(")",pos_for);
@@ -43,7 +75,7 @@ int main()
     user_source.replace(pos_for , 3 , "while");
     user_source.insert(pos_for -1,method_left_content);
  	
- 	cout << "�ܲ��᪺�{���X:\n\n" << user_source;
+ 	cout << "變異後的程式碼:\n\n" << user_source;
 	SaveSourceToNew(user_source);
     system("pause");
     return 0;
