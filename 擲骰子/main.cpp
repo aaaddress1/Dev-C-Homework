@@ -23,9 +23,10 @@ int main()
 		sum = die1 + die2; // sum die1 and die2
 		count --;
 		if (die1 == die2) break;
+		printf("本次您骰到了%d跟%d\n", die1 ,die2);
 	}
 	
-	if (count) printf( "恭喜你（妳）在擲%d次骰子後擲出了對子！\n", (15 - count));
+	if (count) printf( "恭喜你（妳）在擲%d次骰子後擲出了對子！\n", (15 - count - 1));
 	else printf( "你今天的手氣很背哦！\n");
 		
 	// display results of this roll
