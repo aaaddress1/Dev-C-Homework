@@ -2,18 +2,7 @@
 using namespace std;
 #define HourSec (60*60)
 #define MinSec  (60)
-/*
-1.請設計一個描述時間的類別MyTime
-   成員變數：時hour、分min、秒sec
-   建構子與成員函數
 
-2.請重新定義cin、cout與Mytime的導向運算
-
-3.請重新定義MyTime的加法運算
-
-4.請使用MyTime設計一個程式，可輸入兩個時間，輸出兩個時間相加的總和
-Hint：請注意進位60sec=1min, 60min=1hour
-*/
 class MyTime
 {
 	private:
