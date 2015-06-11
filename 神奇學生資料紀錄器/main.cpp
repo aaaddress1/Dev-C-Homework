@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <fstream>
 #include <iostream>
@@ -53,11 +52,12 @@ class Student: public Course,public Person
 
 int main()
 { 
-	Student DataArray[100] ;
-	
+	Student DataArray[100];
 	int Count;
+	
 	fstream Fin("record.txt",ios::in);
 	if (!Fin) exit(0);
+	
 	cout << "當前學生資料：" << endl;
 	for(Count = 0;
 		(Fin >> DataArray[Count].Name 
@@ -69,22 +69,18 @@ int main()
 		DataArray[Count].GetAvg(),cout << DataArray[Count] << endl, Count++);
 	Fin.close();
 	
-	cout << "經排序後結果：" << endl;
+
 	for(int i(0); i < Count; i++)
 	{
 		for(int j(i+1); j < Count; j++)
 		{
-			if (DataArray[j].Average > DataArray[i].Average)
-			{
-				Student Temp = DataArray[i];
-				DataArray[i] = DataArray[j];
-				DataArray[j] = Temp;
-			}
+			if (DataArray[j].Average < DataArray[i].Average) continue;
+			Student Temp = DataArray[i] ;DataArray[i] = DataArray[j] ;DataArray[j] = Temp;	
 		}
 	}
 	
+	cout << "經排序後結果：" << endl;
 	for(int i(0); i < Count; cout << DataArray[i] << endl, i++); 
-	
 	return 0; 
 }
 
