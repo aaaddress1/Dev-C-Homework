@@ -4,12 +4,12 @@
 using namespace std;
 
 /*
-1.½Ğ³]­p¤@­Ó°òÂ¦Ãş§OPerson¡A¨Ó¬ö¿ı¤@­Ó¤Hªº©m¦W»P¦~ÄÖ
-2.½Ğ³]­p¤@­Ó°òÂ¦Ãş§OCourse¡A¨Ó°O¿ı¤@­Ó¬ì¥Øªº´Á¤¤¦Ò»P´Á¥½¦Ò¦¨ÁZ
-3.½Ğ³]­p¤@­ÓÄ~©Ó°òÂ¦Ãş§OPerson»P°òÂ¦Ãş§OCourseªº­l¥ÍÃş§OStudent¡A¨Ó¬ö¿ı¤@­Ó¾Ç¥Íªº©m¦W¡B¦~ÄÖ¡B¾Ç¸¹¡B¦~¯Å»P¦¨ÁZ
-4.½Ğ¨Ï¥ÎÃş§OStudent¡AÅª¨úÀÉ®×record¡A±N©Ò¦³¾Ç¥Í¥H¥­§¡¤À¼Æ°ª§C±Æ§Ç«á¿é¥X
+1.è«‹è¨­è¨ˆä¸€å€‹åŸºç¤é¡åˆ¥Personï¼Œä¾†ç´€éŒ„ä¸€å€‹äººçš„å§“åèˆ‡å¹´é½¡
+2.è«‹è¨­è¨ˆä¸€å€‹åŸºç¤é¡åˆ¥Courseï¼Œä¾†è¨˜éŒ„ä¸€å€‹ç§‘ç›®çš„æœŸä¸­è€ƒèˆ‡æœŸæœ«è€ƒæˆç¸¾
+3.è«‹è¨­è¨ˆä¸€å€‹ç¹¼æ‰¿åŸºç¤é¡åˆ¥Personèˆ‡åŸºç¤é¡åˆ¥Courseçš„è¡ç”Ÿé¡åˆ¥Studentï¼Œä¾†ç´€éŒ„ä¸€å€‹å­¸ç”Ÿçš„å§“åã€å¹´é½¡ã€å­¸è™Ÿã€å¹´ç´šèˆ‡æˆç¸¾
+4.è«‹ä½¿ç”¨é¡åˆ¥Studentï¼Œè®€å–æª”æ¡ˆrecordï¼Œå°‡æ‰€æœ‰å­¸ç”Ÿä»¥å¹³å‡åˆ†æ•¸é«˜ä½æ’åºå¾Œè¼¸å‡º
 
-PS¡G½Ğ¦Û¦æ³]­p©Ò¦³Ãş§O©Ò»İªº¦¨­ûÅÜ¼Æ¡B¦¨­û¨ç¼Æ¡B«Øºc¤l»P¹Bºâ¤l­«¸ü*/
+PSï¼šè«‹è‡ªè¡Œè¨­è¨ˆæ‰€æœ‰é¡åˆ¥æ‰€éœ€çš„æˆå“¡è®Šæ•¸ã€æˆå“¡å‡½æ•¸ã€å»ºæ§‹å­èˆ‡é‹ç®—å­é‡è¼‰*/
 class Person
 {
 	public:
@@ -58,14 +58,14 @@ int main()
 	fstream Fin("record.txt",ios::in);
 	if (!Fin) exit(0);
 	
-	cout << "·í«e¾Ç¥Í¸ê®Æ¡G" << endl;
+	cout << "ç•¶å‰å­¸ç”Ÿè³‡æ–™ï¼š" << endl;
 	for(Count = 0;
 		(Fin >> DataArray[Count].Name 
 		     >> DataArray[Count].Old 
-	         >> DataArray[Count].SID 
-	         >> DataArray[Count].SGrade 
-	         >> DataArray[Count].MidExam 
-	         >> DataArray[Count].FinalExam) && (Count < 100);
+	             >> DataArray[Count].SID 
+	             >> DataArray[Count].SGrade 
+	             >> DataArray[Count].MidExam 
+	             >> DataArray[Count].FinalExam) && (Count < 100);
 		DataArray[Count].GetAvg(),cout << DataArray[Count] << endl, Count++);
 	Fin.close();
 	
@@ -79,7 +79,7 @@ int main()
 		}
 	}
 	
-	cout << "¸g±Æ§Ç«áµ²ªG¡G" << endl;
+	cout << "ç¶“æ’åºå¾Œçµæœï¼š" << endl;
 	for(int i(0); i < Count; cout << DataArray[i] << endl, i++); 
 	return 0; 
 }
