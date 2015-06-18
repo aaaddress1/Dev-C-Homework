@@ -4,7 +4,19 @@
 #include <algorithm>
 #define pLevel(a) (int)((char)(70 - (a/20)))
 using namespace std;
-
+/*
+請設計一個學生資料管理程式
+1. 設計一個類別來記錄學生成績(樣板)與學號(字串)
+成績可使用百分制(整數0~100)或五級制(字元A,B,C,D,E)表示
+2.使用向量(vector)來儲存資料並提供以下管理功能：
+新增
+排序
+刪除
+顯示所有資料
+搜尋特定學號
+將所有資料寫入檔案
+讀取檔案中所有資料
+*/
 template <class T>
 class StudentScore 
 {
@@ -86,7 +98,7 @@ void ReadInData()
     string TempID;
     int TempScore;
     char TempLevel;
-    cout << "���e�ǥ͸�Ʀp�U:" << endl; 
+    cout << "當前學生資料如下:" << endl; 
     for (;fileInput >> TempID >> TempScore >> TempLevel;
           SetIDNumScore(TempID,TempScore),SetIDNumLevel(TempID,TempLevel));
 }
@@ -111,23 +123,23 @@ int main()
        ShowCurrentData();
        string TempID;
        int TempScore;
-       cout << "�п��:\n[1]�s�W�ǥ͸��\n[2]�����ǥ͸��\n[3]��M�ǥ͸��\n[4]���}�{��\n";
+       cout << "請選擇:\n[1]新增學生資料\n[2]移除學生資料\n[3]找尋學生資料\n[4]離開程式\n";
        cin >> Choise;
        switch(Choise)
        {
           case 1:
-            cout << "�п�J�ǥ�ID:"; cin >> TempID;
-            cout << "�п�J�ǥͤ���:"; cin >> TempScore;
+            cout << "請輸入學生ID:"; cin >> TempID;
+            cout << "請輸入學生分數:"; cin >> TempScore;
             SetIDNumScore(TempID,TempScore);
             SetIDNumLevel(TempID,pLevel(TempScore));
             break;
           case 2:
-            cout << "�п�J�ǥ�ID:"; cin >> TempID;
+            cout << "請輸入學生ID:"; cin >> TempID;
             RemoveIDData(TempID);
             break;
           case 3:
-            cout << "�п�J�ǥ�ID:"; cin >> TempID;
-            cout << "���Ƭ�" <<  GetIDNumScore(TempID) << " �ŧO��" <<  GetIDNumLevel(TempID) << endl;
+            cout << "請輸入學生ID:"; cin >> TempID;
+            cout << "分數為" <<  GetIDNumScore(TempID) << " 級別為" <<  GetIDNumLevel(TempID) << endl;
             system("PAUSE");
             break;
        }
